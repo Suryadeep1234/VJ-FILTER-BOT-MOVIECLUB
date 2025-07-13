@@ -574,15 +574,27 @@ async def start(client, message):
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
         except:
             f_caption=f_caption
-    if f_caption is None:
-        f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
+    @Client.on_message(filters.document | filters.video | filters.audio)
+async def handle_file(client, message):
+    file = getattr(message, message.media.value)
+    f_caption = file.file_name
 
-if not await db.has_premium_access(message.from_user.id):
-    f_caption = (
-        "<b>[ @MOVIECLUB9999 ]</b>\n"
-        "<b>[ @MC_MOVIES_HD ]</b>\n\n"
-        f"<b>{f_caption.replace('.', ' ')}</b>"
-    )
+    # Clean caption if None
+    if f_caption is None:
+        f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), file.file_name.split()))}"
+
+    # Check premium access
+    if not await db.has_premium_access(message.from_user.id):
+        f_caption = (
+            "<b>[ @MOVIECLUB9999 ]</b>\n"
+            "<b>[ @MC_MOVIES_HD ]</b>\n\n"
+            f"<b>{f_caption.replace('.', ' ')}</b>"
+        )
+    else:
+        f_caption = f"<b>{f_caption.replace('.', ' ')}</b>"
+
+    await message.reply(f_caption)
+
 else:
     f_caption = f"<b>{f_caption.replace('.', ' ')}</b>"
     if not await db.has_premium_access(message.from_user.id):
