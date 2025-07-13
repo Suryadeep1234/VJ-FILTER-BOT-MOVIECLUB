@@ -542,7 +542,7 @@ async def start(client, message):
             title = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
     "<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{formate_file_name(file.file_name)}</b>"
+    f"<b>{format_file_name(file.file_name)}</b>"
 )
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
@@ -565,7 +565,7 @@ async def start(client, message):
     title = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
     "<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{formate_file_name(file.file_name)}</b>"
+    f"<b>{format_file_name(file.file_name)}</b>"
 )
     size=get_size(files["file_size"])
     f_caption=files["caption"]
