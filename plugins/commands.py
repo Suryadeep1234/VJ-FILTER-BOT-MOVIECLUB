@@ -541,7 +541,7 @@ async def start(client, message):
             file = getattr(msg, filetype.value)
             title = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n\n"
+    "<b>[ @MC_MOVIES_HD ]</b>\n"
     f"<b>{formate_file_name(file.file_name)}</b>"
 )
             size=get_size(file.file_size)
@@ -564,7 +564,7 @@ async def start(client, message):
     files = files_
     title = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n\n"
+    "<b>[ @MC_MOVIES_HD ]</b>\n"
     f"<b>{formate_file_name(file.file_name)}</b>"
 )
     size=get_size(files["file_size"])
