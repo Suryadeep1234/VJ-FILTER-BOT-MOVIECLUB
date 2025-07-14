@@ -575,7 +575,11 @@ async def start(client, message):
         except:
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
+        f_caption = (
+    f"<b>[ @MOVIECLUB9999 ]</b>\n"
+    f"<b>[ @MC_MOVIES_HD ]</b>\n"
+    f"<b>{formate_file_name(files.file_name)}</b>"
+        )
     if not await db.has_premium_access(message.from_user.id):
         if not await check_verification(client, message.from_user.id) and VERIFY == True:
             btn = [[
