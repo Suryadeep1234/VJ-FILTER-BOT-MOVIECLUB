@@ -539,11 +539,7 @@ async def start(client, message):
             )
             filetype = msg.media
             file = getattr(msg, filetype.value)
-            title = (
-    "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{format_file_name(file.file_name)}</b>"
-)
+            title = file.file_name
             size=get_size(file.file_size)
             f_caption = f"<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
@@ -562,11 +558,7 @@ async def start(client, message):
             pass
         return await message.reply('No such file exist.')
     files = files_
-    title = (
-    "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{format_file_name(file.file_name)}</b>"
-)
+    title = files["file_name"]
     size=get_size(files["file_size"])
     f_caption=files["caption"]
     if CUSTOM_FILE_CAPTION:
@@ -575,11 +567,7 @@ async def start(client, message):
         except:
             f_caption=f_caption
     if f_caption is None:
-        f_caption = (
-    f"<b>[ @MOVIECLUB9999 ]</b>\n"
-    f"<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{formate_file_name(files.file_name)}</b>"
-        )
+        f_caption = f"{' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@'), files['file_name'].split()))}"
     if not await db.has_premium_access(message.from_user.id):
         if not await check_verification(client, message.from_user.id) and VERIFY == True:
             btn = [[
