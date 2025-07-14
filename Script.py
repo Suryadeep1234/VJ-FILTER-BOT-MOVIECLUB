@@ -246,7 +246,7 @@ Nᴀᴍᴇ - {}"""
 
     CAPTION = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n\n"
+    "<b>[ @MC_MOVIES_HD ]</b>\n"
     "<b>{file_name}</b>"
 )
 
