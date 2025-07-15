@@ -244,11 +244,13 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = (
-    "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n"
-    "<b>{file_name}</b>"
-)
+    caption = (
+    f"[ @MOVIECLUB9999 ]\n"
+    f"[ @MC_MOVIES_HD ]\n"
+    f"{file_name}\n\n"
+    f"🎭Jᴏɪɴ :- @MC_MOVIES_HD\n"
+    f"💠Rᴇǫᴜᴇsᴛ Gʀᴏᴜᴘ :- @MOVIECLUB9999"
+    )
 
 
     IMDB_TEMPLATE_TXT = """
