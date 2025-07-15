@@ -244,9 +244,11 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = """<b>📂 ғɪʟᴇɴᴀᴍᴇ : {file_name}
-
-<b>⚙️ sɪᴢᴇ : {file_size}</b>""" 
+    CAPTION = (
+    "<b>[ @MOVIECLUB9999 ]</b>\n"
+    "<b>[ @MC_MOVIES_HD ]</b>\n"
+    f"<b>{file.file_name}</b>"
+)
 
     IMDB_TEMPLATE_TXT = """
 <b>Query: {qurey}
