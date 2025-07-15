@@ -244,11 +244,28 @@ Nᴀᴍᴇ - {}"""
 
 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 <b>: {}</b>"""
 
-    CAPTION = (
-    "<b>[ @MOVIECLUB9999 ]</b>\n"
-    "<b>[ @MC_MOVIES_HD ]</b>\n"
-    f"<b>{file_title}</b>"
-    )
+    MAX_CAPTION_LEN = 1024  # Telegram's max caption length
+
+file = message.document or message.video or message.audio
+file_name = file.file_name if file and file.file_name else "Unknown File"
+
+# Your header links
+header_links = "<b>[ @MOVIECLUB9999 ]</b>\n<b>[ @MC_MOVIES_HD ]</b>\n"
+
+# Calculate how many characters are left for the file name
+remaining_len = MAX_CAPTION_LEN - len(header_links)
+
+# Trim file name if too long
+safe_file_name = file_name[:remaining_len]
+
+# Final caption: links + file name all bold
+caption = f"{header_links}<b>{safe_file_name}</b>"
+
+await message.reply_document(
+    document=file.file_id,
+    caption=caption,
+    parse_mode="html"
+)
 
 
     IMDB_TEMPLATE_TXT = """
