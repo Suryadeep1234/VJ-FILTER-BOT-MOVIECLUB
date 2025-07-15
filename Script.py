@@ -247,8 +247,8 @@ Nᴀᴍᴇ - {}"""
     CAPTION = (
     "<b>[ @MOVIECLUB9999 ]</b>\n"
     "<b>[ @MC_MOVIES_HD ]</b>\n"
-    "<b>{file_name}</b>"
-)
+    f"<b>{file_title}</b>"
+    )
 
 
     IMDB_TEMPLATE_TXT = """
